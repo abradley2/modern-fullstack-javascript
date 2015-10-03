@@ -1,6 +1,6 @@
 var express         = require('express'),
     bodyParser      = require('body-parser'),
-    clientSession   = require('client-sessions');
+    clientSessions  = require('client-sessions');
 
 var app = express();
 
@@ -16,3 +16,5 @@ app.use(clientSessions({
   secret: 'MySecret',
   duration: 24 * 60 * 60 * 1000
 }))
+
+module.exports = app;

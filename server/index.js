@@ -1,8 +1,8 @@
-var app = require('./app');
+var app = require('./app.js');
 
 
 // Routes
-var site = require('./site');
+var site = require('./routes/site.js');
 
 
 // Route Handlers

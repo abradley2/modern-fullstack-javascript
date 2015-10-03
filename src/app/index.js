@@ -3,11 +3,13 @@ window._ = require('lodash');
 
 window.app = {};
 
+require('./components/index.js');
+
 $(document).ready(function(){
   app.events = {};
-  (require('ampersand-events')).createEmmiter(app.events);
-  app.global = require('./global');
-  app.api = require('./api')
-  app.viewManager = require('./viewManager');
-  app.router = require('./router');
+  (require('ampersand-events')).createEmitter(app.events);
+  app.global = require('./global.js');
+  app.api = require('./api.js')
+  app.viewManager = require('./viewManager.js');
+  app.router = require('./router.js');
 });
