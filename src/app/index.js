@@ -12,4 +12,5 @@ $(document).ready(function(){
   app.api = require('./api.js')
   app.viewManager = require('./viewManager.js');
   app.router = require('./router.js');
+  app.router.history.start();
 });
