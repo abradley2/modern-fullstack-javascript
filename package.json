@@ -1,0 +1,53 @@
+{
+  "name": "modern-fullstack-javascript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "karma start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abradley2/modern-fullstack-javascript.git"
+  },
+  "author": "Tony Bradley",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/abradley2/modern-fullstack-javascript/issues"
+  },
+  "homepage": "https://github.com/abradley2/modern-fullstack-javascript#readme",
+  "dependencies": {
+    "ampersand-collection": "^1.5.0",
+    "ampersand-events": "^1.1.1",
+    "ampersand-model": "^6.0.2",
+    "ampersand-rest-collection": "^5.0.0",
+    "ampersand-router": "^3.0.2",
+    "ampersand-state": "^4.6.0",
+    "ampersand-view": "^8.0.1",
+    "babel-core": "^5.8.25",
+    "bootstrap": "^3.3.5",
+    "bootswatch": "^3.3.5",
+    "client-sessions": "^0.7.0",
+    "express": "^4.13.3",
+    "font-awesome": "^4.4.0",
+    "jade": "^1.11.0",
+    "jquery": "^2.1.4",
+    "leveldown": "^1.4.1",
+    "levelup": "^1.2.1",
+    "lodash": "^3.10.1",
+    "react": "^0.13.3"
+  },
+  "devDependencies": {
+    "babelify": "^6.3.0",
+    "bourbon": "^4.2.5",
+    "bourbon-neat": "^1.7.2",
+    "browserify": "^11.2.0",
+    "gulp": "^3.9.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-util": "^3.0.6",
+    "lodash.assign": "^3.2.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.4.0"
+  }
+}
