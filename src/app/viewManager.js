@@ -40,6 +40,11 @@ class ViewManager extends AmpersandView {
     this.renderView(views, routeParams);
   }
 
+  remove(){
+    this.cleanupViews();
+    super.remove();
+  }
+
   cleanupViews(omitViews){
     _.each(_.omit(this.views, omitViews), (view) => {
       view.isRendered = false;
@@ -63,8 +68,9 @@ class ViewManager extends AmpersandView {
       let view = this.views[viewName];
       view.isRendered = true;
       if (!view.controller) view.controller = new view.factory();
-      view.controller.el = this.el.querySelector(el);
-      view.controller.render(params);
+      //view.controller.el = this.el.querySelector(el);
+      //view.controller.render(params);
+      this.renderSubview(view.controller, el);
     });
   }
 

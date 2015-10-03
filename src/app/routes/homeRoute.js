@@ -1,5 +1,4 @@
 function homeRoute(){
-  console.log('homeRoute()');
   app.viewManager.render({
     layout: 'default',
     views: {

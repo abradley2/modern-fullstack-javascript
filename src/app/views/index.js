@@ -1,1 +1,3 @@
-exports.HomeView = require('./home/HomeView.js');
+exports['HomeView'] = require('./home/HomeView.js');
+
+exports['AboutView'] = require('./about/AboutView.js');
