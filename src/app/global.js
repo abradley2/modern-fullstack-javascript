@@ -1,10 +1,3 @@
-var AmpersandState = require('ampersand-state');
+var global = _.extend(require('./state/index.js'), Backbone.Events);
 
-var Global = AmpersandState.extend({
-
-  collections: require('./state/collections/index.js'),
-  children: require('./state/models/index.js')
-
-});
-
-module.exports = new Global();
+module.exports = global;

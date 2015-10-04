@@ -1,15 +1,21 @@
-var AmpersandView = require('ampersand-view');
+var AboutView = Backbone.View.extend({
 
-class AboutView extends AmpersandView {
+    template: require('./aboutView.html'),
 
-  constructor(){
-    super();
-    this.template = require('./aboutView.html');
-    this.events = {
+    initialize: function(){
 
+    },
+
+    render: function(){
+      this.$el.html(this.template);
+    },
+
+    remove: function(){
+      this.stopListening();
+      this.$el.empty();
     }
-  }
 
-}
+});
+
 
 module.exports = AboutView;

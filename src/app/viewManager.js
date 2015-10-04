@@ -1,9 +1,6 @@
-var AmpersandView = require('ampersand-view'),
-    templates = require('./layouts/index.js');
-
 function setupViews(views) {
   var retVal = {};
-  _.each(views, (factory, name) => {
+  _.each(views, function(factory, name){
     retVal[name] = {
       factory: factory,
       isRendered: false
@@ -14,7 +11,7 @@ function setupViews(views) {
 
 function setupLayouts(layouts) {
   var retVal = {};
-  _.each(layouts, (template, name) => {
+  _.each(layouts, function(template, name){
     retVal[name] = {
       template: template,
       isRendered: false
@@ -23,60 +20,60 @@ function setupLayouts(layouts) {
   return retVal;
 }
 
-class ViewManager extends AmpersandView {
+var ViewManager = Backbone.View.extend({
 
-  constructor(views, layouts) {
-    super();
-    this.el = $('body')[0];
+  initialize: function(views, layouts, el) {
+    this.setElement(el);
     this.views = setupViews(views);
     this.layouts = setupLayouts(layouts);
-  }
+  },
 
-  render(renderConfig, routeParams){
+  render: function(renderConfig, routeParams){
     var layout = renderConfig.layout,
         views = renderConfig.views;
     this.cleanupViews(views);
     this.renderLayout(layout);
     this.renderView(views, routeParams);
-  }
+  },
 
-  remove(){
+  remove: function(){
     this.cleanupViews();
-    super.remove();
-  }
+    this.$el.empty();
+  },
 
-  cleanupViews(omitViews){
-    _.each(_.omit(this.views, omitViews), (view) => {
+  cleanupViews: function(omitViews){
+    _.each(_.omit(this.views, omitViews), function(view){
       view.isRendered = false;
       if (view.controller) view.controller.remove();
       view.controller = null;
     });
-  }
+  },
 
-  renderLayout(layout){
+  renderLayout: function(layout){
     if(!this.layouts[layout].isRendered){
       this.template = this.layouts[layout].template;
-      this.renderWithTemplate();
+      this.$el.html(this.template);
     }
-    _.each(_.omit(this.layouts, layout), (item) => {
+    _.each(_.omit(this.layouts, layout), function(item){
       item.isRendered = false;
     });
-  }
+  },
 
-  renderView(newView, params){
-    _.each(newView, (viewName, el) => {
-      let view = this.views[viewName];
+  renderView: function(newView, params){
+    var self = this;
+    _.each(newView, function(viewName, el){
+      var view = self.views[viewName];
       view.isRendered = true;
       if (!view.controller) view.controller = new view.factory();
-      //view.controller.el = this.el.querySelector(el);
-      //view.controller.render(params);
-      this.renderSubview(view.controller, el);
+      view.controller.setElement(el);
+      view.controller.render();
     });
   }
 
-}
+});
 
 module.exports = new ViewManager(
   require('./views/index'),
-  require('./layouts/index')
+  require('./layouts/index'),
+  'body'
 );

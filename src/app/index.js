@@ -1,16 +1,18 @@
 window.$ = window.jQuery = require('jquery');
 window._ = require('lodash');
+window.Backbone = require('backbone');
+window.React = require('react');
 
 window.app = {};
 
 require('./components/index.js');
 
 $(document).ready(function(){
-  app.events = {};
-  (require('ampersand-events')).createEmitter(app.events);
+  app.events = _.extend({}, Backbone.Events);
+  app.fn = require('./fn/util.js');
   app.global = require('./global.js');
   app.api = require('./api.js')
   app.viewManager = require('./viewManager.js');
   app.router = require('./router.js');
-  app.router.history.start();
+  Backbone.history.start();
 });

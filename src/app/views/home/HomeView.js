@@ -1,15 +1,21 @@
-var AmpersandView = require('ampersand-view');
+var HomeView = Backbone.View.extend({
 
-class HomeView extends AmpersandView {
+    template: require('./homeView.html'),
 
-  constructor(){
-    super();
-    this.template = require('./homeView.html');
-    this.events = {
+    initialize: function(){
 
+    },
+
+    render: function(){
+      this.$el.html(this.template);
+    },
+
+    remove: function(){
+      this.stopListening();
+      this.$el.empty();
     }
-  }
 
-}
+});
+
 
 module.exports = HomeView;
