@@ -5,9 +5,10 @@ window.React = require('react');
 
 window.app = {};
 
-require('./components/index.js');
+
 
 $(document).ready(function(){
+  app.components = require('./components/index.js');
   app.events = _.extend({}, Backbone.Events);
   app.fn = require('./fn/util.js');
   app.global = require('./global.js');
