@@ -2,9 +2,7 @@ window.$ = window.jQuery = require('jquery');
 window._ = require('lodash');
 window.Backbone = require('backbone');
 window.React = require('react');
-require('./components/index.js');
 window.app = {};
-
 
 
 $(document).ready(function(){
