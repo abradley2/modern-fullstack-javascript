@@ -1,2 +1,17 @@
 @import "../../node_modules/bourbon/app/assets/stylesheets/_bourbon.scss";
 @import "../../node_modules/bourbon-neat/app/assets/stylesheets/_neat.scss";
+
+$grid-columns: 8 !default;
+
+$md-up: new-breakpoint(min-width 700px 10);
+$lg-up: new-breakpoint(min-width 1000px 12);
+
+.post {
+  @include media($md-up) {
+    width: 75%;
+  }
+  @include media($lg-up) {
+    width: 60%;
+  }
+  margin: auto;
+}

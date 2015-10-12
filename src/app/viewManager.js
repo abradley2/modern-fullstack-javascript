@@ -40,7 +40,7 @@ var ViewManager = Backbone.View.extend({
 
   renderLayout: function(layout){
     if(!this.layouts[layout].isRendered){
-      this.template = this.layouts[layout].factory;
+      this.template = this.layouts[layout].factory();
       this.$el.html(this.template);
     }
     _.each(_.omit(this.layouts, layout), function(item){

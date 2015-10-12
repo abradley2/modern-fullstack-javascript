@@ -1,1 +1,1 @@
-exports['default'] = require('./default.html');
+exports['default'] = require('./default.jade');

@@ -13,7 +13,7 @@
     "url": "git+https://github.com/abradley2/modern-fullstack-javascript.git"
   },
   "author": "Tony Bradley",
-  "license": "WTFPL",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/abradley2/modern-fullstack-javascript/issues"
   },
@@ -32,6 +32,7 @@
     "leveldown": "^1.4.1",
     "levelup": "^1.2.1",
     "lodash": "^3.10.1",
+    "marked": "^0.3.5",
     "react": "^0.13.3"
   },
   "devDependencies": {
@@ -44,6 +45,7 @@
     "gulp-sass": "^2.0.4",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-util": "^3.0.6",
+    "jadeify": "^4.4.0",
     "lodash.assign": "^3.2.0",
     "stringify": "^3.1.0",
     "vinyl-buffer": "^1.0.0",

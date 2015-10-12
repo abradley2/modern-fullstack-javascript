@@ -3,6 +3,7 @@ var gulp = require('gulp')
     watchify = require('watchify'),
     browserify = require('browserify'),
     babelify = require('babelify'),
+    jadeify = require('jadeify'),
     stringify = require('stringify'),
     source = require('vinyl-source-stream'),
     buffer = require('vinyl-buffer'),
@@ -18,7 +19,8 @@ var opts = assign({}, watchify.args, customOpts);
 
 var bundler = watchify(browserify(opts));
 
-bundler.transform(stringify);
+bundler.transform(stringify(['.html','.md','.txt']));
+bundler.transform(jadeify);
 bundler.transform(babelify);
 
 bundler.on('update', bundle);

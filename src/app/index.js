@@ -2,6 +2,9 @@ window.$ = window.jQuery = require('jquery');
 window._ = require('lodash');
 window.Backbone = require('backbone');
 window.React = require('react');
+window.marked = require('marked');
+require('../../node_modules/bootstrap/dist/js/npm.js');
+
 window.app = {};
 
 
