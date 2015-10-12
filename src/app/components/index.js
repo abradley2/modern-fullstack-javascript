@@ -1,1 +1,1 @@
-exports['counter'] = require('./Counter.jsx');
+exports.Counter = require('./Counter.jsx');

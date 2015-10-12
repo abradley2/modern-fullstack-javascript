@@ -1,25 +1,15 @@
-var Counter = React.createClass({
+class Counter extends React.Component {
 
-  getInitialState: function(){
-    console.log('get initial state!');
-  },
+  constructor(props){
+    super(props);
+  }
 
-  getDefaultProps: function(){
-    console.log('return props that are defaults');
-  },
-
-  componentWillUpdate: function(newProps, newState){
-
-  },
-
-  render: function(){
+  render(){
     return (
-      <div class='counter'>
-        <input type='text'>Enter a number here</input>
-      </div>
+      <h3>Counter</h3>
     );
   }
 
-});
+}
 
 module.exports = Counter;

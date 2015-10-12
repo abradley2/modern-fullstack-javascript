@@ -4,7 +4,9 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "karma start"
+    "test": "karma start",
+    "watch-client": "gulp watch",
+    "watch-server": "nodemon app"
   },
   "repository": {
     "type": "git",

@@ -8,6 +8,7 @@ var HomeView = Backbone.View.extend({
 
     render: function(){
       this.$el.html(this.template);
+      React.render(<Counter/>, document.querySelector('#counter'));
     },
 
     remove: function(){
