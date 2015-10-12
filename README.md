@@ -1,1 +1,1 @@
-# Awwww Yissss!
+# React + Backbone Boilerplate
