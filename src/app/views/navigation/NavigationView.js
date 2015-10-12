@@ -1,9 +1,9 @@
 var NavigationView = Backbone.View.extend({
 
-  template: require('./navigationView.html'),
+  template: require('./navigationView.jade'),
 
   render: function(){
-    this.$el.html(this.template);
+    this.$el.html(this.template());
   },
 
   remove: function(){

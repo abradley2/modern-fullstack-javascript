@@ -4,6 +4,7 @@ var gulp = require('gulp')
     browserify = require('browserify'),
     babelify = require('babelify'),
     stringify = require('stringify'),
+    jadeify = require('jadeify'),
     source = require('vinyl-source-stream'),
     buffer = require('vinyl-buffer'),
     assign = require('lodash.assign');
@@ -13,7 +14,8 @@ var bundler = browserify({
   debug: true
 });
 
-bundler.transform(stringify);
+bundler.transform(stringify(['.html','.md','.txt']));
+bundler.transform(jadeify);
 bundler.transform(babelify);
 
 bundler.on('log', gutil.log);

@@ -1,13 +1,13 @@
 var AboutView = Backbone.View.extend({
 
-    template: require('./aboutView.html'),
+    template: require('./aboutView.jade'),
 
     initialize: function(){
 
     },
 
     render: function(){
-      this.$el.html(this.template);
+      this.$el.html(this.template());
     },
 
     remove: function(){
