@@ -1,3 +1,5 @@
+var Example = app.components.Example;
+
 var HomeView = Backbone.View.extend({
 
     template: require('./homeView.html'),
@@ -8,7 +10,7 @@ var HomeView = Backbone.View.extend({
 
     render: function(){
       this.$el.html(this.template);
-      React.render(<Counter/>, document.querySelector('#counter'));
+      React.render(<Example/>, this.$el.find('#example-component')[0]);
     },
 
     remove: function(){

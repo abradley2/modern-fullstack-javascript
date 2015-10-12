@@ -1,4 +1,4 @@
-function setupViews(views) {
+function setupFactories(views) {
   var retVal = {};
   _.each(views, function(factory, name){
     retVal[name] = {
@@ -9,23 +9,12 @@ function setupViews(views) {
   return retVal;
 }
 
-function setupLayouts(layouts) {
-  var retVal = {};
-  _.each(layouts, function(template, name){
-    retVal[name] = {
-      template: template,
-      isRendered: false
-    };
-  });
-  return retVal;
-}
-
 var ViewManager = Backbone.View.extend({
 
   initialize: function(views, layouts, el) {
     this.setElement(el);
-    this.views = setupViews(views);
-    this.layouts = setupLayouts(layouts);
+    this.views = setupFactories(views);
+    this.layouts = setupFactories(layouts);
   },
 
   render: function(renderConfig, routeParams){
@@ -51,7 +40,7 @@ var ViewManager = Backbone.View.extend({
 
   renderLayout: function(layout){
     if(!this.layouts[layout].isRendered){
-      this.template = this.layouts[layout].template;
+      this.template = this.layouts[layout].factory;
       this.$el.html(this.template);
     }
     _.each(_.omit(this.layouts, layout), function(item){
