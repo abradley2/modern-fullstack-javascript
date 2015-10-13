@@ -7,7 +7,6 @@ var NavigationView = Backbone.View.extend({
   },
 
   remove: function(){
-    this.stopListening();
     this.$el.empty();
   }
 

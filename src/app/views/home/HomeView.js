@@ -9,19 +9,14 @@ var HomeView = Backbone.View.extend({
       this.$el.html(this.template({
         post: this.post
       }));
-      React.render(
-        <Example/>,
-        this.$el.find('#example-component')[0]
-      );
+      React.render(<Example/>,this.$el.find('#example-component')[0]);
     },
 
     remove: function(){
       React.unmountComponentAtNode(this.$el.find('#example-component')[0]);
-      this.stopListening();
       this.$el.empty();
     }
 
 });
-
 
 module.exports = HomeView;
