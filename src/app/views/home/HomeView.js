@@ -1,22 +1,28 @@
-var Example = app.components.Example;
+class HomeView extends React.Component {
+  constructor(props){
+    super(props);
+  }
 
-var HomeView = Backbone.View.extend({
+  render(){
+    return (<div>
+      <h3>This is the home View</h3>
+      <a href='#about'>About</a>
+    </div>);
+  }
+}
+
+module.exports = Backbone.View.extend({
 
     template: require('./homeView.jade'),
-    post: marked(require('./home.md')),
 
     render: function(){
-      this.$el.html(this.template({
-        post: this.post
-      }));
-      React.render(<Example/>,this.$el.find('#example-component')[0]);
+      this.$el.html(this.template());
+      React.render(<HomeView/>,this.$el.find('#component-container')[0]);
     },
 
     remove: function(){
-      React.unmountComponentAtNode(this.$el.find('#example-component')[0]);
+      React.unmountComponentAtNode(this.$el.find('#component-container')[0]);
       this.$el.empty();
     }
 
 });
-
-module.exports = HomeView;
