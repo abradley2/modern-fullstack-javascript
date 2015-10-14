@@ -1,4 +1,6 @@
-var NavigationView = Backbone.View.extend({
+
+
+module.exports = Backbone.View.extend({
 
   template: require('./navigationView.jade'),
 
@@ -11,6 +13,3 @@ var NavigationView = Backbone.View.extend({
   }
 
 });
-
-
-module.exports = NavigationView;

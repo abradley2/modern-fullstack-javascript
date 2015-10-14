@@ -2,7 +2,7 @@ function setupFactories(views) {
   var retVal = {};
   _.each(views, function(factory, name){
     retVal[name] = {
-      factory: factory,
+      factory: _.isFunction(factory) ? factory : () => { return factory },
       isRendered: false
     };
   });
