@@ -51,7 +51,7 @@ var ViewManager = (function() {
         this.template = this.layouts[layout].factory();
         this.$el.html(this.template);
       }
-      _.each(_.omit(this.layouts, layout), function(item) {
+      _.each(_.omit(this.layouts, layout), item => {
         item.isRendered = false;
       });
     },
