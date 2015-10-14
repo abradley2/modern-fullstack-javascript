@@ -17,12 +17,13 @@ var ViewManager = Backbone.View.extend({
     this.layouts = setupFactories(layouts);
   },
 
-  render: function(renderConfig, routeParams){
+  render: function(renderConfig){
     var layout = renderConfig.layout,
-        views = renderConfig.views;
+        views = renderConfig.views,
+        params = renderConfig.params;
     this.cleanupViews(views);
     this.renderLayout(layout);
-    this.renderView(views, routeParams);
+    this.renderView(views, params);
   },
 
   remove: function(){
