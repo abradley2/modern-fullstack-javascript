@@ -5,7 +5,6 @@ class HomeView extends React.Component {
 
   render(){
     return (<div>
-      <h3>This is the home View</h3>
       <a href='#about'>About</a>
     </div>);
   }
@@ -14,9 +13,12 @@ class HomeView extends React.Component {
 module.exports = Backbone.View.extend({
 
     template: require('./homeView.jade'),
+    post: marked(require('./home.md')),
 
     render: function(){
-      this.$el.html(this.template());
+      this.$el.html(this.template({
+        post: this.post
+      }));
       React.render(<HomeView/>,this.$el.find('#component-container')[0]);
     },
 
