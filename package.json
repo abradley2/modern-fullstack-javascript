@@ -5,7 +5,9 @@
   "main": "app.js",
   "scripts": {
     "test": "karma start",
+    "build-client": "gulp build",
     "watch-client": "gulp watch",
+    "build-server": "node app",
     "watch-server": "nodemon app"
   },
   "repository": {
