@@ -1,5 +1,5 @@
-exports[''] = require('./homeRoute');
+export {default as default} from './homeRoute.js';
 
-exports['home'] = require('./homeRoute');
+export {default as home} from './homeRoute.js';
 
-exports['about'] = require('./aboutRoute');
+export {default as about} from './aboutRoute.js';

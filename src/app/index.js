@@ -7,7 +7,6 @@ require('../../node_modules/bootstrap/dist/js/npm.js');
 
 window.app = {};
 
-
 $(document).ready(function(){
   app.events = _.extend({}, Backbone.Events);
   app.global = require('./global.js');

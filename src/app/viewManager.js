@@ -73,7 +73,7 @@ var ViewManager = (function() {
 
 })();
 
-module.exports = new ViewManager({
+export default new ViewManager({
   views: require('./views/index'),
   layouts: require('./layouts/index'),
   el: 'body'

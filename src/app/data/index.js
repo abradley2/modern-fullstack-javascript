@@ -1,1 +1,1 @@
-module.exports['getTodoList'] = require('./getTodoList.js');
+export {default as getTodoList} from './getTodoList.js';

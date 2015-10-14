@@ -1,1 +1,1 @@
-exports.Example = require('./Example.js');
+export {default as Example} from './Example.js';

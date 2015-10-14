@@ -1,5 +1,5 @@
-exports['HomeView'] = require('./home/HomeView.js');
+export {default as HomeView} from './home/HomeView.jsx';
 
-exports['AboutView'] = require('./about/AboutView.js');
+export {default as AboutView} from './about/AboutView.jsx';
 
-exports['NavigationView'] = require('./navigation/NavigationView.js');
+export {default as NavigationView} from './navigation/NavigationView.jsx';

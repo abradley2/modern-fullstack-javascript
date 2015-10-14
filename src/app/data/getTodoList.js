@@ -1,4 +1,4 @@
-function getTodoList(){
+export default function getTodoList(){
 
   var TodoCollection = Backbone.Collection.extend({
     url: '/todos'
@@ -7,5 +7,3 @@ function getTodoList(){
   return new TodoCollection([]);
 
 }
-
-module.exports = getTodoList;

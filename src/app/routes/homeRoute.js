@@ -1,11 +1,9 @@
-function homeRoute(){
+export default function homeRoute(){
   app.viewManager.render({
-    layout: 'default',
+    layout: 'main',
     views: {
       '#navigation-region': 'NavigationView',
       '#content-region': 'HomeView'
     }
   });
 }
-
-module.exports = homeRoute;

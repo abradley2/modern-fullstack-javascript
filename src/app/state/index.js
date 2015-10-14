@@ -1,1 +1,1 @@
-exports.userModel = require('./userModel.js');
+export {default as user} from './userModel.js'

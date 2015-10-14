@@ -1,11 +1,9 @@
-function aboutRoute(){
+export default function aboutRoute(){
   app.viewManager.render({
-    layout: 'default',
+    layout: 'main',
     views: {
       '#navigation-region': 'NavigationView',
       '#content-region': 'AboutView'
     }
   });
 }
-
-module.exports = aboutRoute;
