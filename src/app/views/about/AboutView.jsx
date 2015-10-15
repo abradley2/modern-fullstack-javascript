@@ -16,11 +16,11 @@ export default Backbone.View.extend({
 
     render: function(){
       this.$el.html(this.template);
-      React.render(<AboutView/>,this.$el.find('#about-container')[0]);
+      ReactDOM.render(<AboutView/>,this.$el.find('#about-container')[0]);
     },
 
     remove: function(){
-      React.unmountComponentAtNode(this.$el.find('#about-container')[0]);
+      ReactDOM.unmountComponentAtNode(this.$el.find('#about-container')[0]);
       this.$el.empty();
     }
 });
