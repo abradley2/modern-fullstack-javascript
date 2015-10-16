@@ -22,6 +22,7 @@ var ViewManager = (function() {
       this.setElement(el);
       this.views = setupFactories(views);
       this.layouts = setupFactories(layouts);
+      console.log('viewManager = ',this);
     },
 
     render: function(renderConfig) {
@@ -73,8 +74,4 @@ var ViewManager = (function() {
 
 })();
 
-export default new ViewManager({
-  views: require('./views/index'),
-  layouts: require('./layouts/index'),
-  el: 'body'
-});
+export default ViewManager;
