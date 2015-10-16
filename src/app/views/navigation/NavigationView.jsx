@@ -18,11 +18,11 @@ export default Backbone.View.extend({
 
   render: function(){
     this.$el.html(this.template);
-    React.render(<NavigationView/>,this.$el.find('#navigation-container')[0]);
+    ReactDOM.render(<NavigationView/>,this.$el.find('#navigation-container')[0]);
   },
 
   remove: function(){
-    React.unmountComponentAtNode(this.$el.find('#navigation-container')[0]);
+    ReactDOM.unmountComponentAtNode(this.$el.find('#navigation-container')[0]);
     this.$el.empty();
   }
 });
