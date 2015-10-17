@@ -12,19 +12,39 @@ import * as methods from './methods/index.js';
 import * as routes from './routes/index.js';
 
 $(document).ready(function(){
+
   window.app = {
-    // api methods are general factory-functions that return models and collections
+
+    /*
+      The api is just a container of functions, mainly factory functions that
+      return model and collection instances.
+    */
     api: new Api(methods),
-    // global holds stores which are singletons of models or collections
+    
+    /*
+      The global object contains 'stores' which are singletons of collections and
+      models used to track application state. It is extended with Backbone.Events
+      so it can channel even information between those stores.
+    */
     global: new Global(stores),
-    // the viewManager handles rendering and disposal of views and layouts
+
+    /*
+      The viewManager handles rendering of combinations of layouts and their
+      nested views, and keeps track of which are rendered to automate disposal
+      upon every call to render a new layout/view set.
+    */
     viewManager: new ViewManager({
       views: views,
       layouts: layouts,
       el: 'body'
     }),
-    // the router translates url changes into instructions for the viewManager
+
+    /*
+      The router simply responds to url changes by telling the viewManager to
+      render a new layout/view set accordingly.
+    */
     router: new Router(routes)
   };
+
   Backbone.history.start();
 });
