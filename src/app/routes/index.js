@@ -1,5 +1,8 @@
-export {default as default} from './homeRoute.js';
+import homeRoute from './homeRoute.js';
+import aboutRoute from './aboutRoute.js';
 
-export {default as home} from './homeRoute.js';
-
-export {default as about} from './aboutRoute.js';
+export default {
+  '': homeRoute,
+  'home': homeRoute,
+  'about': aboutRoute
+}

@@ -22,7 +22,6 @@ var ViewManager = (function() {
       this.setElement(el);
       this.views = setupFactories(views);
       this.layouts = setupFactories(layouts);
-      console.log('viewManager = ',this);
     },
 
     render: function(renderConfig) {

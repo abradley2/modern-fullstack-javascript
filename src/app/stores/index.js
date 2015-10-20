@@ -1,1 +1,5 @@
-export {default as user} from './userModel.js'
+import userModel from './userModel';
+
+export default {
+  'user': userModel
+}

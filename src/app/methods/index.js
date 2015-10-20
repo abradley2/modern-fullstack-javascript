@@ -1,1 +1,5 @@
-export {default as getTodoList} from './getTodoList.js';
+import getTodoList from './getTodoList.js';
+
+export default {
+  'getTodoList': getTodoList
+}
