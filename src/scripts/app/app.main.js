@@ -1,7 +1,3 @@
-import './lib.js';
-
-import Api from './Api.js';
-import Global from './Global.js';
 import ViewManager from './ViewManager.js';
 import Router from './Router.js';
 
@@ -11,22 +7,25 @@ import * as stores from './stores/index.js';
 import * as methods from './methods/index.js';
 import * as routes from './routes/index.js';
 
-$(document).ready(function(){
+document.addEventListener("DOMContentLoaded", function(event) {
 
+  /*
+    Keeping the global namespace nice and clean
+  */
   window.app = {
 
     /*
       The api is just a container of functions, mainly factory functions that
       return model and collection instances.
     */
-    api: new Api(methods),
-    
+    methods: methods,
+
     /*
-      The global object contains 'stores' which are singletons of collections and
+      The global stores contains 'stores' which are singletons of collections and
       models used to track application state. It is extended with Backbone.Events
-      so it can channel even information between those stores.
+      so it can channel information between those stores.
     */
-    global: new Global(stores),
+    stores: stores,
 
     /*
       The viewManager handles rendering of combinations of layouts and their

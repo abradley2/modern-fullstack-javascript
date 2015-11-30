@@ -1,21 +1,14 @@
-require('babel-core');
+var gulp = require('gulp'),
+    tasks = require('./build');
 
-var gulp = require('gulp');
+gulp.task('watchify', tasks.watchify);
 
-gulp.task('styles', require('./tasks/styles'));
+gulp.task('browserify', tasks.browserify);
 
-gulp.task('watchify', require('./tasks/watchify'));
+gulp.task('sass', tasks.sass);
 
-gulp.task('browserify', require('./tasks/browserify'));
+gulp.task('build', ['browserify']);
 
-gulp.task('libs', require('./tasks/libs'));
-
-gulp.task('watch-styles', function(){
-  gulp.watch(['./src/styles/**/*'],['styles']);
-});
-
-gulp.task('build', ['browserify', 'libs', 'styles']);
-
-gulp.task('watch', ['watchify', 'libs', 'styles', 'watch-styles']);
+gulp.task('watch', ['watchify']);
 
 gulp.task('default', ['build']);

@@ -7,7 +7,8 @@ var ViewManager = (function() {
         factory: _.isFunction(factory) ? factory : () => {
           return factory
         },
-        isRendered: false
+        isRendered: false,
+        node: null
       };
     });
     return retVal;
@@ -35,7 +36,7 @@ var ViewManager = (function() {
 
     remove: function() {
       this.cleanupViews();
-      this.$el.empty();
+      this.el.innerHTML = '';
     },
 
     cleanupViews: function(omitViews) {
@@ -49,7 +50,8 @@ var ViewManager = (function() {
     renderLayout: function(layout) {
       if (!this.layouts[layout].isRendered) {
         this.template = this.layouts[layout].factory();
-        this.$el.html(this.template);
+        console.log(this.$el[0]);
+        this.el.innerHTML = this.template;
       }
       _.each(_.omit(this.layouts, layout), item => {
         item.isRendered = false;
@@ -60,10 +62,10 @@ var ViewManager = (function() {
       var self = this;
       _.each(newView, (viewName, el) => {
         var view = self.views[viewName];
-        view.isRendered = true;
         if (!view.controller) view.controller = new view.factory();
         view.controller.setElement(el);
         view.controller.render();
+        view.isRendered = true;
       });
     }
 

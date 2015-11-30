@@ -15,6 +15,6 @@ app.use(clientSessions({
   cookieName: 'MySession',
   secret: 'MySecret',
   duration: 24 * 60 * 60 * 1000
-}))
+}));
 
 module.exports = app;

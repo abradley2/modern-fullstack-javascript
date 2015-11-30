@@ -6,7 +6,7 @@ var site = require('./routes/site.js');
 
 
 // Route Handlers
-app.get('/', site.home);
+app.get('/', site.app);
 
 
 // Start Server
