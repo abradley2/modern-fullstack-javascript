@@ -12,17 +12,3 @@ export default class NavigationView extends React.Component {
     </div>);
   }
 }
-
-export default Backbone.View.extend({
-
-  render: function(){
-    this.el.innerHTML = '<div id="navigation-container"/>';
-    ReactDOM.render(<NavigationView/>,this.el.querySelector('#navigation-container')[0]);
-  },
-
-  remove: function(){
-    ReactDOM.unmountComponentAtNode(this.el.querySelector('#navigation-container')[0]);
-    this.el.innerHTML = '';
-  }
-
-});

@@ -1,4 +1,4 @@
-class HomeView extends React.Component {
+export default class HomeView extends React.Component {
   constructor(props){
     super(props);
   }
@@ -10,17 +10,3 @@ class HomeView extends React.Component {
     </div>);
   }
 }
-
-export default Backbone.View.extend({
-    template: '<div id="home-container"/>',
-
-    render: function(){
-      this.$el.html(this.template);
-      ReactDOM.render(<HomeView/>,this.$el.find('#home-container')[0]);
-    },
-
-    remove: function(){
-      ReactDOM.unmountComponentAtNode(this.$el.find('#home-container')[0]);
-      this.$el.empty();
-    }
-});

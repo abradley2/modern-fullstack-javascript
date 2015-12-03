@@ -1,5 +1,5 @@
 export default function homeRoute(){
-  app.viewManager.render({
+  app.viewMediator.render({
     layout: 'main',
     views: {
       '#navigation-region': 'NavigationView',

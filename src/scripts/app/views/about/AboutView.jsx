@@ -1,4 +1,4 @@
-class AboutView extends React.Component {
+export default class AboutView extends React.Component {
   constructor(props){
     super(props);
   }
@@ -10,17 +10,3 @@ class AboutView extends React.Component {
     </div>);
   }
 }
-
-export default Backbone.View.extend({
-    template: '<div id="about-container"/>',
-
-    render: function(){
-      this.$el.html(this.template);
-      ReactDOM.render(<AboutView/>,this.$el.find('#about-container')[0]);
-    },
-
-    remove: function(){
-      ReactDOM.unmountComponentAtNode(this.$el.find('#about-container')[0]);
-      this.$el.empty();
-    }
-});

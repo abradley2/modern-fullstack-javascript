@@ -1,4 +1,4 @@
-import ViewManager from './ViewManager.js';
+import ViewMediator from './ViewMediator.js';
 import Router from './Router.js';
 
 import * as views from './views/index.js';
@@ -28,11 +28,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
     stores: stores,
 
     /*
-      The viewManager handles rendering of combinations of layouts and their
+      The viewMediator handles rendering of combinations of layouts and their
       nested views, and keeps track of which are rendered to automate disposal
       upon every call to render a new layout/view set.
     */
-    viewManager: new ViewManager({
+    viewMediator: new ViewMediator({
       views: views,
       layouts: layouts,
       el: 'body'
