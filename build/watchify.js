@@ -24,6 +24,7 @@ function getBundles(done){
   glob('./src/scripts/**/*.main.js', function(err, files){
     var streams = files.map(function(entry){
       var bundler = watchify(browserify({ entries: [entry]}))
+        .exclude('jquery')
         .transform(stringify({extensions: ['.html', '.txt', '.md']}))
 			  .transform(babelify);
       bundler.on('log', gutil.log);

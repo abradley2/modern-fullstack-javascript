@@ -52,21 +52,26 @@ export default class ViewMediator {
     });
   }
 
-  renderViews(newViews){
+  renderViews(newViews, params){
+    params = params ? params : {};
     this.removeViews(_.keys(_.omit(this.views, _.values(newViews))));
     _.each(newViews, (newView, el) => {
       this.views[newView].node = this.el.querySelector(el);
-      this.views[newView].ref = ReactDOM.render(
-        React.createElement(this.views[newView].factory),
-        this.views[newView].node
-      );
+      if (this.views[newView].ref === null) {
+        this.views[newView].ref = ReactDOM.render(
+          React.createElement(this.views[newView].factory, params ? params[newView] : null),
+          this.views[newView].node
+        );
+      } else if (params[newView]){
+        this.views[newView].ref.setProps(params[newView]);
+      }
       this.views[newView].isRendered = true;
     });
   }
 
   render(renderConfig){
     this.renderLayout(renderConfig.layout);
-    this.renderViews(renderConfig.views);
+    this.renderViews(renderConfig.views, renderConfig.params);
   }
 
   remove(){

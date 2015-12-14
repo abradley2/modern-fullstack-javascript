@@ -14,7 +14,8 @@ var nameRegex = /([\w]+)(?=\.main\.js$)/g;
 function getBundles(done){
   glob('./src/scripts/**/*.main.js', function(err, files){
     var streams = files.map(function(entry){
-      return browserify({ entries: [entry]})
+      return browserify({ entries: [entry], exclude: ['jquery']})
+        .exclude('jquery')
         .transform(babelify)
         .transform(stringify)
         .bundle()
