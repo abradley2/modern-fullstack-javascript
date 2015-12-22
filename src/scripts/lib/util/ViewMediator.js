@@ -18,12 +18,12 @@ function omit(obj, omitKeys){
 
 function createFactories(views) {
   var retVal = {};
-  views.forEach( (factory, name) => {
-    retVal[name] = {
+  Object.keys(views).forEach( (view) => {
+    retVal[view] = {
       node: null,
       ref: null,
       isRendered: false,
-      factory: React.createFactory(factory)
+      factory: React.createFactory(views[view])
     };
   });
   return retVal;
@@ -31,9 +31,9 @@ function createFactories(views) {
 
 function createLayouts(layouts){
   var retVal = {};
-  layouts.forEach( (html, name) => {
-    retVal[name] = {
-      html: html,
+  Object.keys(layouts).forEach( (layout) => {
+    retVal[layout] = {
+      html: layouts[layout],
       isRendered: false
     };
   });
@@ -60,7 +60,7 @@ export default class ViewMediator {
   }
 
   removeViews(views){
-    view.forEach( (view) => {
+    views.forEach( (view) => {
       if (this.views[view].isRendered){
         ReactDOM.unmountComponentAtNode(this.views[view].node);
         this.views[view].node = null;
@@ -71,21 +71,6 @@ export default class ViewMediator {
   }
 
   renderViews(newViews, params){
-<<<<<<< HEAD:src/scripts/app/ViewMediator.js
-    params = params ? params : {};
-    this.removeViews(_.keys(_.omit(this.views, _.values(newViews))));
-    _.each(newViews, (newView, el) => {
-      this.views[newView].node = this.el.querySelector(el);
-      if (this.views[newView].ref === null) {
-        this.views[newView].ref = ReactDOM.render(
-          React.createElement(this.views[newView].factory, params ? params[newView] : null),
-          this.views[newView].node
-        );
-      } else if (params[newView]){
-        this.views[newView].ref.setProps(params[newView]);
-      }
-      this.views[newView].isRendered = true;
-=======
     this.removeViews(
       Object.keys(
         omit(
@@ -95,18 +80,18 @@ export default class ViewMediator {
       )
     );
 
-    return newViews.map( (newView, el) => {
-      this.views[newView].node = this.el.querySelector(el);
+    Object.keys(newViews).forEach( (region) => {
+      var newView = newViews[region];
+
+      this.views[newView].node = this.el.querySelector(region);
       this.views[newView].isRendered = true;
 
       this.views[newView].ref = ReactDOM.render(
         this.views[newView].factory(params ? params[newView] : null),
         this.views[newView].node
       );
-
->>>>>>> kah:src/scripts/lib/util/ViewMediator.js
     });
-    
+
   }
 
   render(renderConfig){
@@ -115,7 +100,7 @@ export default class ViewMediator {
   }
 
   remove(){
-    this.removeViews(this.views.keys());
+    this.removeViews(Object.keys(this.views));
     this.el.innerHTML = null;
   }
 
