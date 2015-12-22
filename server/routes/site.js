@@ -1,3 +1,3 @@
-exports.home = function(req, res){
-  res.render('home');
+exports.app = function(req, res){
+  res.render('app');
 };
