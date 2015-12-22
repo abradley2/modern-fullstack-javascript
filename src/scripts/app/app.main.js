@@ -1,6 +1,3 @@
-import ViewMediator from './ViewMediator.js';
-import Router from './Router.js';
-
 import * as views from './views/index.js';
 import * as layouts from './layouts/index.js';
 import * as stores from './stores/index.js';

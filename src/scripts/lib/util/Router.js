@@ -1,5 +1,5 @@
 var Router = (routes) => {
-  
+
   var Router = Backbone.Router.extend({
 
     routes: routes
