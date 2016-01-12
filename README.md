@@ -1,57 +1,46 @@
-# React + Backbone Boilerplate
+# React Starter
 
-This boilerplate is ideal for web applications with high levels of interactivity
-(No need to bring in React for blogs). Backbone handles the data layer, and also
-provides the routing solution. React is in charge of the display and interaction
-layer. These two pieces work very well with each other.
+This is a simple starting point for building a SPA using
+[React.js](https://facebook.github.io/react/docs/getting-started.html)
+as the View layer and
+[Backbone.js](http://backbonejs.org/)
+for routing and data-handling. React does not come with a built in way to
+respond to url changes, or any models for api-integration, so Backbone fills
+this requirement.
 
-This is mainly focused on the client so the server side is extremely
-minimal, while client side is quite opinionated.
+### Included libraries/modules
 
-# The display hierarchy
+1. react
+2. react-dom
+3. backbone
+4. lodash
+5. react-view-mediator
 
-### Layouts
+The starting boilerplate source code is heavily documentated. Check
+out the **src/app/app.main.js** file as a starting point.
 
-Layouts should not have logic in them. They are purely there to control
-presentation. Each layout therefore should export a jsx const.
+### Build Commands
+Start with: `npm run`
 
-The layout specifies "regions" by id tags on associated html elements. These
-regions are then used to contain views. This is a pretty common convention.
+1. watch-scripts
+2. watch-styles
+3. build-scripts
+4. build-styles
+5. watch
+6. build
 
-### Views
+Pretty self-explanatory what each does. The general watch and build commands
+cover both scripts and styles. Watch commands will add sourcemaps (since this is
+generally is used in development).
 
-Views are Backbone Views without jQuery use. A view at minimum is a Backbone.View
-with a render and remove function. A view's lifetime is described in the ViewManager
-section.
+### Build Process
 
-### Components
+The build process compiles all **.js** and **.jsx** files through [https://babeljs.io/] to
+allow for using the latest ES6/React.js syntax. See the documentation on
+[using ES6 classes as React component constructors](https://facebook.github.io/react/docs/reusable-components.html#es6-classes)
 
-Components are class constructors that export React.Components. Pretty
-self-explanatory here. These are the reusable bits that are found throughout
-your views.
+By default, styles are compiled via [Sass](http://sass-lang.com/), though you can easily switch
+to less. [Bourbon](http://bourbon.io/) mixins are also included by default.
 
-# Clientside routing
-
-### Routes
-
-### The ViewManager
-
-This is probably the most important piece and the one I've had to put the most
-code into.
-
-1. The view is initialized from the supplied constructor. Each given factory
-can only have one created instance at a time, and the new instance will only
-be created when there is no currently rendered instance.
-2. The view is rendered. The render function will be called
-3. the view is removed. This removes the reference to the instance from the factory,
-and the next time the factory is used, a new instance will be created.
-
-The above can be a bit confusing but it is useful since oftne on re-render not
-everything about a view needs to be changed. Sometimes, nothing at all needs to
-be changed (such as a navbar, which is probably always present, but static).
-
-# Data
-
-### Methods
-
-### Stores
+See the **config.js** file in the root for easy configuration of the build process.
+Adding additional Browserify transforms is very simple.

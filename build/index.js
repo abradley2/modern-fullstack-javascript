@@ -1,5 +1,7 @@
-exports.browserify = require('./browserify.js');
+exports.buildStyles = require('./build-styles.js');
 
-exports.watchify = require('./watchify.js');
+exports.buildScripts = require('./build-scripts.js');
 
-exports.sass = require('./sass.js');
+exports.watchStyles = require('./watch-styles.js');
+
+exports.watchScripts = require('./watch-scripts.js');

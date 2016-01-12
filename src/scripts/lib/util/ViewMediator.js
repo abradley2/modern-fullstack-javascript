@@ -1,3 +1,9 @@
+function mapObject(obj, callback){
+  Object.keys(obj).map( (key) => {
+    return callback(obj[key], key);
+  });
+}
+
 function values(obj){
   return Object.keys(obj).map( (key) => {
     return obj[key];
@@ -18,12 +24,12 @@ function omit(obj, omitKeys){
 
 function createFactories(views) {
   var retVal = {};
-  Object.keys(views).forEach( (view) => {
-    retVal[view] = {
+  mapObject(views, (factory, name) => {
+    retVal[name] = {
       node: null,
       ref: null,
       isRendered: false,
-      factory: React.createFactory(views[view])
+      factory: React.createFactory(factory)
     };
   });
   return retVal;
@@ -31,9 +37,38 @@ function createFactories(views) {
 
 function createLayouts(layouts){
   var retVal = {};
-  Object.keys(layouts).forEach( (layout) => {
+  mapObject(layouts, (html, layout) => {
     retVal[layout] = {
-      html: layouts[layout],
+      html: html,
+      isRendered: false
+    };
+  });
+  return retVal;
+}
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+import {values, mapObject, omit} from './util.js';
+
+function createFactories(views) {
+  var retVal = {};
+  mapObject(views, (factory, name) => {
+    retVal[name] = {
+      node: null,
+      ref: null,
+      isRendered: false,
+      factory: React.createFactory(factory)
+    };
+  });
+  return retVal;
+}
+
+function createLayouts(layouts){
+  var retVal = {};
+  mapObject(layouts, (html, layout) => {
+    retVal[layout] = {
+      html: html,
       isRendered: false
     };
   });
@@ -50,8 +85,9 @@ export default class ViewMediator {
 
   renderLayout(layout){
     if (this.layout !== layout) this.layouts[layout].isRendered = false;
+
     if (!this.layouts[layout].isRendered) {
-      this.remove();
+      if (this.layout) this.remove();
       this.layout = layout;
       this.el.innerHTML = this.layouts[layout].html;
       this.layouts[layout].isRendered = true;
@@ -80,9 +116,7 @@ export default class ViewMediator {
       )
     );
 
-    Object.keys(newViews).forEach( (region) => {
-      var newView = newViews[region];
-
+    mapObject(newViews, (newView, region) => {
       this.views[newView].node = this.el.querySelector(region);
       this.views[newView].isRendered = true;
 

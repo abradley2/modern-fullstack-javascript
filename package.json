@@ -1,53 +1,45 @@
 {
-  "name": "modern-fullstack-javascript",
+  "name": "client-development",
   "version": "1.0.0",
-  "description": "",
+  "description": "Starting Boilerplate for client-side web development. ",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "karma start",
-    "build-client": "gulp build",
-    "watch-client": "gulp watch",
-    "build-server": "node ./server/index.js",
-    "watch-server": "nodemon ./server/index.js"
+    "watch-styles": "gulp watch-styles",
+    "watch-scripts": "gulp watch-scripts",
+    "build-styles": "gulp build-styles",
+    "build-scripts": "gulp build-scripts",
+    "watch": "gulp watch",
+    "build": "gulp build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/abradley2/modern-fullstack-javascript.git"
+    "url": "https://github.com/abradley2/react-frontend-starter"
   },
   "author": "Tony Bradley",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/abradley2/modern-fullstack-javascript/issues"
+    "url": "https://github.com/abradley2/react-frontend-starter/issues"
   },
-  "homepage": "https://github.com/abradley2/modern-fullstack-javascript#readme",
+  "homepage": "https://github.com/abradley2/react-frontend-starter",
   "dependencies": {
-    "babel-core": "^5.8.25",
     "backbone": "^1.2.3",
-    "body-parser": "^1.14.1",
-    "client-sessions": "^0.7.0",
-    "express": "^4.13.3",
-    "jade": "^1.11.0",
-    "lodash": "^3.10.1",
-    "react": "^0.14.0",
-    "react-dom": "^0.14.0"
+    "jquery": "^2.1.4",
+
   },
   "devDependencies": {
-    "babelify": "^6.3.0",
-    "bourbon": "^4.2.5",
+    "bourbon": "^4.2.6",
     "bourbon-neat": "^1.7.2",
-    "browserify": "^11.2.0",
+    "browserify": "^12.0.1",
+    "watchify": "^3.6.0",
+
+    "stringify": "^3.2.0",
     "event-stream": "^3.3.2",
-    "glob": "^6.0.1",
-    "gulp": "^3.9.0",
-    "gulp-concat": "^2.6.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.0.4",
-    "gulp-sourcemaps": "^1.6.0",
-    "gulp-util": "^3.0.6",
-    "lodash.assign": "^3.2.0",
-    "stringify": "^3.1.0",
-    "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.4.0"
+    "glob": "^5.0.0",
+    "gulp": "^3.9.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.1.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-util": "^3.0.7"
   }
 }
