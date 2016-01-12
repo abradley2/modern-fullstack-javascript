@@ -35,8 +35,8 @@ exports.browserifyOptions = function(bundler, env){
 
   if (env === 'watch') {
 
-
-    bundler.transform(babelify);
+    bundler.exclude('jquery'); // this is an optional dependency of backbone that we aren't using here
+    bundler.transform(babelify.configure({presets: ["es2015", "react"]}));
     bundler.transform(stringify(['.html']));
 
     return bundler;
@@ -45,7 +45,8 @@ exports.browserifyOptions = function(bundler, env){
 
   if (env === 'build') {
 
-    bundler.transform(babelify);
+    bundler.exclude('jquery'); // this is an optional dependency of backbone that we aren't using here
+    bundler.transform(babelify.configure({presets: ["es2015", "react"]}));
     bundler.transform(stringify(['.html']));
 
     return bundler;
@@ -53,23 +54,3 @@ exports.browserifyOptions = function(bundler, env){
   }
 
 };
-
-/** GULP CSS PREPROCESSOR OPTIONS **/
-
-/*
- *  Gulp is the automation tool, so you may pass in any
- *  CSS preprocessor that is compatible with gulp streams.
- *  By default, SASS is used.
- *
- *  If you would rather you less, require gulp-less and
- *  specify it here instead.
- *
- *  Gulp is quite simple and it
- *  may be easier to configure a different build/watch-styles
- *  process by directly editing the build/build-styles.js
- *  and build/watch-styles.js files.
- */
-
-var sass = require('gulp-sass');
-
-exports.gulpCSSPreprocessor = sass();

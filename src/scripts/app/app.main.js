@@ -1,11 +1,10 @@
-import * as views from './views/index.js';
-import * as layouts from './layouts/index.js';
-import * as stores from './stores/index.js';
-import * as methods from './methods/index.js';
-import * as routes from './routes/index.js';
+import views from './views';
+import layouts from './layouts';
+import stores from './stores';
+import methods from './methods';
+import routes from './routes';
 
 document.addEventListener("DOMContentLoaded", function(event) {
-
   /*
     Keeping the global namespace nice and clean
   */
@@ -39,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
     /*
-      The viewMediator handles rendering of combinations of layouts and their
+      The ViewMediator handles rendering of combinations of layouts and their
       nested views, and keeps track of which are rendered to automate disposal
       upon every call to render a new layout/view set.
 
@@ -49,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       All views are registered in ./src/views/index.js
       All layouts are registered in ./src/layouts/index.js
     */
-    viewMediator: new ViewMediator({
+    viewMediator: new ReactViewMediator({
       views: views,
       layouts: layouts,
       el: 'body'

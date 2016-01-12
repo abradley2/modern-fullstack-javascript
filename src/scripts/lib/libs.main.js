@@ -1,13 +1,11 @@
-import _ from 'lodash';
+import _ from 'underscore';
 import Backbone from 'backbone';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ViewMediator from 'react-view-mediator.js';
+import ReactViewMediator from 'react-view-mediator';
 
 window._ = _;
 window.Backbone = Backbone;
 window.React = React;
 window.ReactDOM = ReactDOM;
-
-window.Router = Router;
-window.ViewMediator = ViewMediator;
+window.ReactViewMediator = ReactViewMediator;

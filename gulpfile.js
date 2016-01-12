@@ -1,14 +1,17 @@
 var gulp = require('gulp'),
     tasks = require('./build');
 
-gulp.task(
-  'watch-styles',
-  gulp.watch.bind(gulp,['./src/styles/**/*'], tasks.watchStyles)
-);
+
 
 gulp.task(
   'build-styles',
   tasks.buildStyles
+);
+
+gulp.task(
+  'watch-styles',
+  ['build-styles'],
+  gulp.watch.bind(gulp,['./src/styles/**/*'], ['build-styles'])
 );
 
 gulp.task(
