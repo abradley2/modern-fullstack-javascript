@@ -5,7 +5,7 @@ This is a simple starting point for building a SPA using
 as the View layer and
 [Backbone.js](http://backbonejs.org/)
 for routing and data-handling. React does not come with a built in way to
-respond to url changes, or any models for api-integration, so Backbone fills
+respond to url changes, or any models for API-integration, so Backbone fills
 this requirement.
 
 ### Included libraries/modules
@@ -27,8 +27,6 @@ Start with: `npm run`
 3. build-scripts
 4. build-styles
 
-These are all pretty self-explanatory
-
 ### Build Process
 
 The build process compiles all **.js** and **.jsx** files through [https://babeljs.io/] to
@@ -44,4 +42,4 @@ Adding additional Browserify transforms is very simple.
 This starter does not come with any sort of back end. The **index.html** file in the root references
 the default location of the dist files. I recommend installing
 [http-server](https://www.npmjs.com/package/http-server)
-from npm and spinning one up in the folder root.
+from npm and spinning one up in the folder root. And of course, Express is pretty kewl too.
