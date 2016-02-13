@@ -1,8 +1,6 @@
 var gulp = require('gulp'),
     tasks = require('./build');
 
-
-
 gulp.task(
   'build-styles',
   tasks.buildStyles

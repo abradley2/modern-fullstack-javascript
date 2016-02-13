@@ -14,7 +14,7 @@ this requirement.
 2. react-dom
 3. react-view-mediator
 4. backbone
-5. underscore
+5. lodash (replaceable with underscore)
 
 The starting boilerplate source code is heavily documented. Check
 out the **src/app/app.main.js** file as a starting point.

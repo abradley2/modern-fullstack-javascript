@@ -10,9 +10,9 @@
 
 exports.distOptions = {
 
-  'scriptsDistFolder': './dist/scripts',
+  'scriptsDistFolder': './public/dist/scripts',
 
-  'stylesDistFolder': './dist/styles'
+  'stylesDistFolder': './public/dist/styles'
 
 };
 
@@ -31,26 +31,20 @@ exports.distOptions = {
 var babelify = require("babelify"),
     stringify = require('stringify');
 
-exports.browserifyOptions = function(bundler, env){
+exports.browserifyOptions = function(bundler, env, entry){
 
-  if (env === 'watch') {
+  bundler.exclude('jquery');
+  bundler.transform(babelify.configure({presets: ["es2015", "react"]}));
+  bundler.transform(stringify(['.html']));
 
-    bundler.exclude('jquery'); // this is an optional dependency of backbone that we aren't using here
-    bundler.transform(babelify.configure({presets: ["es2015", "react"]}));
-    bundler.transform(stringify(['.html']));
-
-    return bundler;
+  if (env === 'dev') {
 
   }
 
-  if (env === 'build') {
-
-    bundler.exclude('jquery'); // this is an optional dependency of backbone that we aren't using here
-    bundler.transform(babelify.configure({presets: ["es2015", "react"]}));
-    bundler.transform(stringify(['.html']));
-
-    return bundler;
+  if (env === 'prod') {
 
   }
+
+  return bundler;
 
 };
