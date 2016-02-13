@@ -8,7 +8,7 @@ export default class AboutView extends React.Component {
   render(){
     return (<div>
       <h3>This is the about View</h3>
-      <NavLink href='/home' replace={true}>Home</NavLink>
+      <NavLink href='/' replace={true}>Home</NavLink>
     </div>);
   }
 }
