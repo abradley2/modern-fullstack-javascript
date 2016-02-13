@@ -4,17 +4,12 @@ class NavLink extends React.Component {
   }
 
   navigate(e){
-    e.preventDefault()
-
-    if (this.props.replace){
-      history.replaceState(this.props.data, this.props.title, this.props.href);
-    } else {
-      history.pushState(this.props.data, this.props.title, this.props.href);
-    }
+    e.preventDefault();
 
     app.router.navigate(
       this.props.href,
       {
+        replace: this.props.replace,
         trigger: this.props.trigger
       }
     );
