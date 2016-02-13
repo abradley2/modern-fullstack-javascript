@@ -1,3 +1,5 @@
+import NavLink from '../../components/NavLink.jsx';
+
 export default class AboutView extends React.Component {
   constructor(props){
     super(props);
@@ -6,7 +8,7 @@ export default class AboutView extends React.Component {
   render(){
     return (<div>
       <h3>This is the about View</h3>
-      <a href='#home'>Home</a>
+      <NavLink href='/home' replace={true}>Home</NavLink>
     </div>);
   }
 }

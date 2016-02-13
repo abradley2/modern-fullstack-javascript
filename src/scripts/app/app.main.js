@@ -70,5 +70,5 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   };
 
-  Backbone.history.start();
+  Backbone.history.start({ pushState: true, root: '/' });
 });

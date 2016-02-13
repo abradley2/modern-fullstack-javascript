@@ -1,3 +1,5 @@
+import NavLink from '../../components/NavLink.jsx';
+
 export default class NavigationView extends React.Component {
   constructor(props){
     super(props);
@@ -7,10 +9,10 @@ export default class NavigationView extends React.Component {
     return (<div className='pure-menu pure-menu-horizontal'>
       <ul className='pure-menu-list'>
         <li className='pure-menu-item'>
-          <a className='pure-menu-link' href='#home'>Home</a>
+          <NavLink className='pure-menu-link' href='/home'>Home</NavLink>
         </li>
         <li className='pure-menu-item'>
-          <a className='pure-menu-link' href='#about'>About</a>
+          <NavLink className='pure-menu-link' href='/about'>About</NavLink>
         </li>
       </ul>
     </div>);
